@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Gideon (Gidi) Yoffe | Homepage Skeleton</title>
+    <meta
+      name="description"
+      content="A media-free HTML skeleton that stays closer to the original yoffeg.space layout and color map."
+    />
+    <meta name="theme-color" content="#08111a" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css?v=navfont23" />
+  </head>
+  <body>
+    <div class="page-stars" aria-hidden="true"></div>
+    <div class="page-glow page-glow-left" aria-hidden="true"></div>
+    <div class="page-glow page-glow-right" aria-hidden="true"></div>
+
+    <header class="masthead" id="top">
+      <div class="masthead-strip" aria-hidden="true"></div>
+      <div class="masthead-left-backdrop" aria-hidden="true"></div>
+      <div class="masthead-moon-backdrop" aria-hidden="true"></div>
+      <img
+        class="masthead-left-planet"
+        src="assets/images/masthead-left-planet-cropped.gif"
+        alt=""
+        aria-hidden="true"
+      />
+      <img
+        class="masthead-right-europa"
+        src="assets/images/masthead-right-surface.gif"
+        alt=""
+        aria-hidden="true"
+      />
+      <div class="shell masthead-inner">
+        <h1 class="masthead-name">Gideon (Gidi) Yoffe</h1>
+        <p class="masthead-role">Planetary Scientist</p>
+
+        <nav class="masthead-nav" aria-label="Primary">
+          <a href="#about"><span class="nasa-nav-label">HOME</span></a>
+          <a href="assets/docs/gidi-yoffe-cv.pdf" target="_blank" rel="noopener"><span class="nasa-nav-label">CURRICULUM VITAE</span></a>
+          <a href="mailto:gidi.yoffe@weizmann.ac.il"><span class="nasa-nav-label">CONTACT ME</span></a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="section shell" id="about" data-reveal>
+        <div class="section-card intro-card">
+          <div class="intro-visual">
+            <img
+              class="intro-portrait"
+              src="assets/images/nutshell-portrait.jpg"
+              alt="Portrait of Gideon Yoffe"
+            />
+          </div>
+
+          <div class="intro-copy">
+            <h2 class="section-title section-title-nasa">In a nutshell</h2>
+            <p>
+              I&apos;m fascinated by the hidden structures that shape both the natural world and
+              human culture. My work spans planetary science, astronomy, and statistical learning
+              to search for life beyond Earth.
+            </p>
+            <p>
+              Currently, I&apos;m a postdoctoral fellow in the group of Yohai Kaspi at the
+              Weizmann Institute of Science, where I lead efforts to assess the feasibility of
+              detecting clues of biological activity on Jupiter&apos;s moon Europa.
+            </p>
+            <p>
+              I will soon be joining Jonathan Lunine&apos;s research group as a Fulbright
+              Postdoctoral Fellow at Caltech.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section shell" id="research" data-reveal>
+        <div class="research-layout">
+          <div class="research-main">
+            <div class="section-heading section-heading-centered">
+              <h2 class="section-title section-title-nasa">New stuff</h2>
+            </div>
+
+            <div class="research-grid">
+              <article class="research-card">
+                <div class="research-media">
+                  <img
+                    class="research-image"
+                    src="assets/images/research-spectral-decomposition.png"
+                    alt="Spectral decomposition figure for Europa preprint"
+                  />
+                </div>
+                <div class="research-card-body">
+                  <h3>Preprint: Spectral Decomposition Reveals Surface Processes on Europa</h3>
+                  <p>Accepted for publication in <em class="paper-title">The Astrophysical Journal</em></p>
+                  <a
+                    href="https://arxiv.org/abs/2603.10520"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    ArXiv link
+                  </a>
+                </div>
+              </article>
+
+              <article class="research-card">
+                <div class="research-media">
+                  <img
+                    class="research-image"
+                    src="assets/images/research-molecular-diversity-crop.jpg"
+                    alt="Molecular diversity as a biosignature cover image"
+                  />
+                </div>
+                <div class="research-card-body">
+                  <h3>Preprint: Molecular diversity as a biosignature</h3>
+                  <p>Accepted for publication in <em class="paper-title">Nature Astronomy</em></p>
+                  <a
+                    href="https://arxiv.org/abs/2511.00525"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    ArXiv link
+                  </a>
+                </div>
+              </article>
+
+              <article class="research-card">
+                <div class="research-media">
+                  <img
+                    class="research-image"
+                    src="assets/images/research-europa-fluorescence.png"
+                    alt="Europa fluorescence research image"
+                  />
+                </div>
+                <div class="research-card-body">
+                  <h3>Fluorescent Biomolecules Detectable in Near-Surface Ice on Europa</h3>
+                  <p>Published in <em class="paper-title">Astrobiology</em></p>
+                  <a
+                    href="https://www.liebertpub.com/doi/10.1089/ast.2024.0140"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    Link to paper
+                  </a>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <aside class="repos-panel">
+            <h2 class="section-title section-title-nasa repos-title">Repos</h2>
+            <div class="repos-list">
+              <article class="repo-card">
+                <a
+                  class="repo-media-link"
+                  href="https://zenodo.org/records/18944511"
+                  target="_blank"
+                  rel="noopener"
+                  aria-label="Open Europa dose maps Zenodo record"
+                >
+                  <img
+                    class="repo-image"
+                    src="assets/images/repo-zenodo-logo.png"
+                    alt="Zenodo logo"
+                  />
+                </a>
+                <h3>Europa dose maps (from Yoffe et al., 2025; Astrobiology)</h3>
+              </article>
+              <article class="repo-card">
+                <a
+                  class="repo-media-link"
+                  href="https://github.com/Geant4-IcyMoons/"
+                  target="_blank"
+                  rel="noopener"
+                  aria-label="Open Geant4-IcyMoons repository"
+                >
+                  <img
+                    class="repo-image"
+                    src="assets/images/repo-geant4-icymoons-logo.png"
+                    alt="Geant4-IcyMoons logo"
+                  />
+                </a>
+                <h3>Geant4-IcyMoons (under construction)</h3>
+              </article>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section shell news-section" id="news" data-reveal>
+        <div class="section-heading section-heading-centered">
+          <h2 class="section-title section-title-nasa news-title">Stuff on the news</h2>
+        </div>
+
+        <div class="news-grid">
+          <article class="news-card">
+            <div class="news-media">
+              <a
+                class="news-media-link"
+                href="https://astrobiology.com/2026/03/spectral-decomposition-reveals-surface-processes-on-europa.html"
+                target="_blank"
+                rel="noopener"
+                aria-label="Open Astrobiology article"
+              >
+                <img
+                  class="news-image"
+                  src="assets/images/news-astrobiology-logo.png"
+                  alt="Astrobiology logo"
+                />
+              </a>
+            </div>
+            <div class="news-card-body">
+              <h3>Spectral Decomposition Reveals Surface Processes on Europa</h3>
+            </div>
+          </article>
+
+          <article class="news-card">
+            <div class="news-media">
+              <a
+                class="news-media-link"
+                href="https://www.universetoday.com/articles/reading-europas-fingerprints"
+                target="_blank"
+                rel="noopener"
+                aria-label="Open Universe Today article"
+              >
+                <img
+                  class="news-image"
+                  src="assets/images/news-universe-today-logo.png"
+                  alt="Universe Today logo"
+                />
+              </a>
+            </div>
+            <div class="news-card-body">
+              <h3>Reading Europa&apos;s Fingerprints</h3>
+            </div>
+          </article>
+
+          <article class="news-card">
+            <div class="news-media">
+              <a
+                class="news-media-link"
+                href="https://www.universetoday.com/articles/is-europa-alive-a-laser-could-detect-biosignatures-from-space"
+                target="_blank"
+                rel="noopener"
+                aria-label="Open Universe Today article"
+              >
+                <img
+                  class="news-image"
+                  src="assets/images/news-universe-today-logo.png"
+                  alt="Universe Today logo"
+                />
+              </a>
+            </div>
+            <div class="news-card-body">
+              <h3>Is Europa Alive? A Laser Could Detect Biosignatures from Space</h3>
+            </div>
+          </article>
+
+          <article class="news-card">
+            <div class="news-media">
+              <a
+                class="news-media-link"
+                href="https://www.ynetnews.com/health_science/article/s13ygmolge"
+                target="_blank"
+                rel="noopener"
+                aria-label="Open Ynet Global article"
+              >
+                <img
+                  class="news-image"
+                  src="assets/images/news-ynet-logo.png"
+                  alt="Ynet Global logo"
+                />
+              </a>
+            </div>
+            <div class="news-card-body">
+              <h3>A new initiative: An Israeli spacecraft to Europa</h3>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section shell section-tight event-section" data-reveal>
+        <div class="section-heading section-heading-centered">
+          <h2 class="section-title section-title-nasa">I will soon be at...</h2>
+        </div>
+        <div class="event-grid">
+          <div class="event-panel-card">
+            <h3>IPPW 2026: 23rd International Planetary Probe Workshop</h3>
+            <p class="event-date">June 20-26, 2026</p>
+            <p>Washington, DC</p>
+            <a
+              class="button button-outline"
+              href="https://ippw2026.jhuapl.edu/"
+              target="_blank"
+              rel="noopener"
+            >
+              Details
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="shell footer-inner">
+        <p>Gideon (Gidi) Yoffe</p>
+        <p>Media-free HTML skeleton with the original section order and palette retained.</p>
+        <p>&copy; <span id="year"></span></p>
+      </div>
+    </footer>
+
+    <script src="script.js?v=navfont23"></script>
+  </body>
+</html>

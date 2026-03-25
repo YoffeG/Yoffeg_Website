@@ -1,0 +1,963 @@
+@font-face {
+  font-family: "Nasa";
+  src: url("assets/fonts/nasa-webfont.ttf") format("truetype");
+  font-display: swap;
+}
+
+:root {
+  --bg: #08111a;
+  --bg-deep: #06101a;
+  --panel: rgba(9, 20, 31, 0.88);
+  --panel-soft: rgba(10, 24, 38, 0.86);
+  --light-panel: #efe7dc;
+  --text: #e8e5e2;
+  --body: #ecd0a6;
+  --accent: #ed9074;
+  --accent-soft: rgba(237, 144, 116, 0.16);
+  --line: rgba(236, 208, 166, 0.12);
+  --card-line: rgba(91, 120, 159, 0.55);
+  --shadow: 0 28px 72px rgba(0, 0, 0, 0.24);
+  --radius-lg: 26px;
+  --radius-md: 20px;
+  --radius-sm: 12px;
+  --shell: min(1180px, calc(100vw - 2.4rem));
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--text);
+  font-family: "Outfit", "Avenir Next", "Trebuchet MS", sans-serif;
+  background:
+    radial-gradient(circle at top left, rgba(237, 144, 116, 0.08), transparent 30%),
+    radial-gradient(circle at top right, rgba(120, 150, 200, 0.08), transparent 28%),
+    linear-gradient(180deg, #07111a 0%, #0a1521 42%, #08111a 100%);
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(8, 17, 26, 0.12), rgba(8, 17, 26, 0.48));
+  z-index: -2;
+}
+
+.page-stars {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.12;
+  background-image:
+    radial-gradient(circle at 18% 24%, white 0 1px, transparent 2px),
+    radial-gradient(circle at 72% 14%, white 0 1px, transparent 2px),
+    radial-gradient(circle at 84% 62%, white 0 1px, transparent 2px),
+    radial-gradient(circle at 28% 74%, white 0 1px, transparent 2px);
+  z-index: -1;
+}
+
+.page-glow {
+  position: fixed;
+  width: 30rem;
+  height: 30rem;
+  border-radius: 50%;
+  filter: blur(70px);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.page-glow-left {
+  left: -10rem;
+  top: 2rem;
+  background: radial-gradient(circle, rgba(237, 144, 116, 0.12), transparent 68%);
+}
+
+.page-glow-right {
+  right: -10rem;
+  top: -2rem;
+  background: radial-gradient(circle, rgba(90, 125, 255, 0.09), transparent 68%);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.shell {
+  width: var(--shell);
+  margin-inline: auto;
+}
+
+.masthead {
+  position: relative;
+  min-height: 18rem;
+  padding: 0;
+  --moon-width: min(34vw, 18rem);
+}
+
+.masthead-strip {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background:
+    linear-gradient(180deg, rgba(9, 20, 31, 0.58), rgba(9, 20, 31, 0.28)),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.14)),
+    url("assets/images/masthead-texture.jpg") center 34% / cover no-repeat;
+  -webkit-mask-image: linear-gradient(
+    180deg,
+    #000 0%,
+    #000 78%,
+    rgba(0, 0, 0, 0.78) 88%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    180deg,
+    #000 0%,
+    #000 78%,
+    rgba(0, 0, 0, 0.78) 88%,
+    transparent 100%
+  );
+}
+
+.masthead-left-planet {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  height: 18rem;
+  width: calc(var(--moon-width) * 1.1);
+  object-fit: cover;
+  object-position: left center;
+  pointer-events: none;
+  -webkit-mask-image:
+    linear-gradient(to right, #000 0%, #000 62%, rgba(0, 0, 0, 0.72) 80%, transparent 100%),
+    linear-gradient(to bottom, #000 0%, #000 78%, rgba(0, 0, 0, 0.78) 88%, transparent 100%);
+  -webkit-mask-size: 100% 100%, 100% 100%;
+  -webkit-mask-repeat: no-repeat, no-repeat;
+  -webkit-mask-composite: source-in;
+  mask-image:
+    linear-gradient(to right, #000 0%, #000 62%, rgba(0, 0, 0, 0.72) 80%, transparent 100%),
+    linear-gradient(to bottom, #000 0%, #000 78%, rgba(0, 0, 0, 0.78) 88%, transparent 100%);
+  mask-size: 100% 100%, 100% 100%;
+  mask-repeat: no-repeat, no-repeat;
+  mask-composite: intersect;
+}
+
+.masthead-right-europa {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
+  height: 18rem;
+  width: calc(var(--moon-width) * 1.15);
+  object-fit: cover;
+  object-position: right center;
+  pointer-events: none;
+  -webkit-mask-image:
+    linear-gradient(to left, #000 0%, #000 62%, rgba(0, 0, 0, 0.72) 80%, transparent 100%),
+    linear-gradient(to bottom, #000 0%, #000 78%, rgba(0, 0, 0, 0.78) 88%, transparent 100%);
+  -webkit-mask-size: 100% 100%, 100% 100%;
+  -webkit-mask-repeat: no-repeat, no-repeat;
+  -webkit-mask-composite: source-in;
+  mask-image:
+    linear-gradient(to left, #000 0%, #000 62%, rgba(0, 0, 0, 0.72) 80%, transparent 100%),
+    linear-gradient(to bottom, #000 0%, #000 78%, rgba(0, 0, 0, 0.78) 88%, transparent 100%);
+  mask-size: 100% 100%, 100% 100%;
+  mask-repeat: no-repeat, no-repeat;
+  mask-composite: intersect;
+}
+
+.masthead-moon-backdrop {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  height: 18rem;
+  width: calc(var(--moon-width) * 1.9);
+  background:
+    linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0) 28%,
+      rgba(0, 0, 0, 0.16) 44%,
+      rgba(0, 0, 0, 0.54) 64%,
+      rgba(0, 0, 0, 0.88) 82%,
+      rgba(0, 0, 0, 0.98) 100%
+    );
+  pointer-events: none;
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    #000 0%,
+    #000 78%,
+    rgba(0, 0, 0, 0.78) 88%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    #000 0%,
+    #000 78%,
+    rgba(0, 0, 0, 0.78) 88%,
+    transparent 100%
+  );
+}
+
+.masthead-left-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  height: 18rem;
+  width: calc(var(--moon-width) * 1.9);
+  background:
+    linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.98) 0%,
+      rgba(0, 0, 0, 0.88) 18%,
+      rgba(0, 0, 0, 0.54) 36%,
+      rgba(0, 0, 0, 0.16) 56%,
+      rgba(0, 0, 0, 0) 72%,
+      rgba(0, 0, 0, 0) 100%
+    );
+  pointer-events: none;
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    #000 0%,
+    #000 78%,
+    rgba(0, 0, 0, 0.78) 88%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    #000 0%,
+    #000 78%,
+    rgba(0, 0, 0, 0.78) 88%,
+    transparent 100%
+  );
+}
+
+.masthead-inner {
+  position: relative;
+  z-index: 3;
+  display: grid;
+  justify-items: center;
+  align-content: center;
+  gap: 0.75rem;
+  text-align: center;
+  min-height: 18rem;
+  padding: 2rem 1rem;
+}
+
+.masthead-role,
+.section-title,
+.button,
+.masthead-nav a {
+  letter-spacing: 0.04em;
+}
+
+.masthead-role {
+  margin: 0;
+  color: #fffdf9;
+  font-size: 0.98rem;
+  font-weight: 400;
+  font-family: "Nasa", sans-serif;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  -webkit-text-stroke: 1.3px var(--accent);
+  paint-order: stroke fill;
+  text-shadow:
+    2px 0 0 var(--accent),
+    -2px 0 0 var(--accent),
+    0 2px 0 var(--accent),
+    0 -2px 0 var(--accent),
+    2px 2px 0 var(--accent),
+    -2px 2px 0 var(--accent),
+    2px -2px 0 var(--accent),
+    -2px -2px 0 var(--accent);
+}
+
+.masthead-name {
+  margin: 0;
+  color: #fffdf9;
+  font-size: clamp(2.6rem, 4.4vw, 4rem);
+  font-weight: 500;
+  line-height: 1;
+  font-family: "Nasa", sans-serif;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  -webkit-text-stroke: 1.7px var(--accent);
+  paint-order: stroke fill;
+  text-shadow:
+    2px 0 0 var(--accent),
+    -2px 0 0 var(--accent),
+    0 2px 0 var(--accent),
+    0 -2px 0 var(--accent),
+    2px 2px 0 var(--accent),
+    -2px 2px 0 var(--accent),
+    2px -2px 0 var(--accent),
+    -2px -2px 0 var(--accent),
+    0 0 8px rgba(237, 144, 116, 0.18);
+}
+
+.masthead-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.15rem;
+}
+
+.masthead-nav a {
+  padding: 0.9rem 1.28rem;
+  color: var(--accent);
+  font-size: 1.1rem;
+  border-bottom: 1px solid transparent;
+  letter-spacing: 0.04em;
+  transition:
+    color 180ms ease,
+    border-color 180ms ease,
+    transform 180ms ease;
+}
+
+.nasa-nav-label {
+  display: inline-block;
+  font-family: "Nasa", sans-serif !important;
+  font-weight: 400 !important;
+  font-style: normal !important;
+  font-size: 1.34rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #fffdf9;
+  -webkit-text-stroke: 1.3px var(--accent);
+  paint-order: stroke fill;
+  text-shadow:
+    2px 0 0 var(--accent),
+    -2px 0 0 var(--accent),
+    0 2px 0 var(--accent),
+    0 -2px 0 var(--accent),
+    2px 2px 0 var(--accent),
+    -2px 2px 0 var(--accent),
+    2px -2px 0 var(--accent),
+    -2px -2px 0 var(--accent);
+}
+
+.masthead-nav a:hover,
+.masthead-nav a:focus-visible {
+  color: var(--accent);
+  border-color: rgba(237, 144, 116, 0.34);
+  transform: translateY(-1px);
+}
+
+.section {
+  padding: 2.6rem 0 0;
+}
+
+.section-tight {
+  padding-top: 2rem;
+}
+
+.section-card,
+.event-card,
+.research-card,
+.news-panel {
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+}
+
+.section-card,
+.event-card,
+.research-card {
+  border: 1px solid var(--line);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01)),
+    var(--panel);
+}
+
+.intro-card {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.7fr) minmax(0, 1.3fr);
+  gap: 1.6rem;
+  align-items: center;
+  padding: 1.6rem;
+}
+
+.intro-visual {
+  display: flex;
+  justify-content: center;
+}
+
+.intro-portrait {
+  display: block;
+  width: min(100%, 22rem);
+  height: auto;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(236, 208, 166, 0.14);
+  box-shadow: var(--shadow);
+}
+
+.intro-copy p {
+  margin: 0 0 1rem;
+  color: var(--body);
+  font-size: 1.06rem;
+  line-height: 1.74;
+}
+
+.section-title {
+  margin: 0 0 1rem;
+  color: var(--accent);
+  font-size: 1.6rem;
+  font-weight: 500;
+  font-family: "Outfit", "Avenir Next", "Trebuchet MS", sans-serif;
+  letter-spacing: 0.04em;
+}
+
+.section-title-nasa {
+  font-family: "Nasa", sans-serif;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.section-title-centered {
+  text-align: center;
+}
+
+.event-card {
+  display: grid;
+  justify-items: center;
+  gap: 0.35rem;
+  padding: 1.8rem 1.4rem;
+  text-align: center;
+}
+
+.event-card h3 {
+  margin: 0;
+  color: var(--body);
+  font-size: 1.2rem;
+  font-weight: 500;
+  font-family: "Outfit", "Avenir Next", "Trebuchet MS", sans-serif;
+  letter-spacing: 0.02em;
+}
+
+.event-card p {
+  margin: 0;
+  color: var(--body);
+  font-size: 1rem;
+}
+
+.event-date {
+  font-size: 0.92rem !important;
+}
+
+.event-section {
+  padding-bottom: 0.4rem;
+}
+
+.event-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(18rem, 30rem));
+  justify-content: center;
+  gap: 1.2rem;
+}
+
+.event-panel-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.7rem;
+  width: 100%;
+  min-height: 14.5rem;
+  padding: 1.8rem 1.4rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--card-line);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01)),
+    rgba(9, 20, 31, 0.82);
+}
+
+.event-panel-card h3 {
+  margin: 0;
+  color: var(--text);
+  font-size: 1.1rem;
+  font-weight: 500;
+  line-height: 1.35;
+  font-family: "Outfit", "Avenir Next", "Trebuchet MS", sans-serif;
+}
+
+.event-panel-card p {
+  margin: 0;
+  color: var(--body);
+  font-size: 1rem;
+}
+
+.event-panel-card .button {
+  margin-top: auto;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.9rem;
+  padding: 0.82rem 1.25rem;
+  border-radius: 999px;
+  border: 1px solid rgba(237, 144, 116, 0.36);
+  font-weight: 500;
+  font-family: "Outfit", "Avenir Next", "Trebuchet MS", sans-serif;
+  font-size: 0.96rem;
+  letter-spacing: 0.04em;
+  transition:
+    transform 180ms ease,
+    background-color 180ms ease,
+    border-color 180ms ease;
+}
+
+.button-outline {
+  color: var(--text);
+  background: rgba(237, 144, 116, 0.08);
+}
+
+.button-outline:hover,
+.button-outline:focus-visible {
+  transform: translateY(-1px);
+  background: rgba(237, 144, 116, 0.14);
+  border-color: rgba(237, 144, 116, 0.5);
+}
+
+main {
+  position: relative;
+}
+
+.section-heading {
+  margin-bottom: 1.25rem;
+}
+
+.section-heading-centered {
+  text-align: center;
+}
+
+.research-layout {
+  display: block;
+}
+
+.research-main {
+  min-width: 0;
+}
+
+.research-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.2rem;
+}
+
+.research-card {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  overflow: hidden;
+  border-color: var(--card-line);
+}
+
+.research-media {
+  display: grid;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  place-items: center;
+  background: rgba(0, 0, 0, 0.78);
+}
+
+.research-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+}
+
+.research-slot {
+  min-height: 0;
+  height: 100%;
+  border: 0;
+  border-bottom: 1px dashed rgba(237, 144, 116, 0.26);
+  border-radius: 0;
+}
+
+.research-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  padding: 1.2rem 1.25rem 1.35rem;
+}
+
+.research-card h3 {
+  margin: 0;
+  color: #fffdf9;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.3;
+  font-family: "Outfit", "Avenir Next", "Trebuchet MS", sans-serif;
+  letter-spacing: 0.02em;
+  -webkit-text-stroke: 0.8px var(--accent);
+  paint-order: stroke fill;
+  text-shadow:
+    1px 0 0 var(--accent),
+    -1px 0 0 var(--accent),
+    0 1px 0 var(--accent),
+    0 -1px 0 var(--accent);
+}
+
+.paper-title {
+  font-style: italic;
+  font-family: "Iowan Old Style", Georgia, "Times New Roman", serif;
+}
+
+.research-card p {
+  margin: 0;
+  color: var(--body);
+  line-height: 1.68;
+}
+
+.research-card a,
+.news-card-body a {
+  color: var(--accent);
+  font-weight: 500;
+  display: inline-block;
+}
+
+.research-card a {
+  margin-top: auto;
+}
+
+.news-card-body a {
+  margin-top: auto;
+}
+
+.research-card a:hover,
+.research-card a:focus-visible,
+.news-card-body a:hover,
+.news-card-body a:focus-visible {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.repos-panel {
+  position: absolute;
+  top: 2.6rem;
+  right: 1.2rem;
+  width: 16.5rem;
+  padding: 1.5rem 1.25rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--line);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01)),
+    var(--panel);
+  z-index: 1;
+}
+
+.repos-title {
+  margin-bottom: 1.1rem;
+  text-align: center;
+}
+
+.repos-list {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.repo-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  min-height: 8.25rem;
+  padding: 1rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--card-line);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01)),
+    rgba(9, 20, 31, 0.82);
+}
+
+.repo-media-link {
+  display: grid;
+  place-items: center;
+  min-height: 4.75rem;
+  border-radius: var(--radius-sm);
+  background: rgba(0, 0, 0, 0.78);
+  overflow: hidden;
+}
+
+.repo-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.repo-card h3 {
+  margin: 0;
+  color: var(--text);
+  font-size: 0.96rem;
+  font-weight: 500;
+  line-height: 1.35;
+  font-family: "Outfit", "Avenir Next", "Trebuchet MS", sans-serif;
+  -webkit-text-stroke: 0;
+  text-shadow: none;
+}
+
+.repo-card a {
+  margin-top: auto;
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.repo-card a:hover,
+.repo-card a:focus-visible {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.news-section {
+  padding-bottom: 0.4rem;
+}
+
+.news-title {
+  color: var(--accent);
+}
+
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 14rem));
+  justify-content: center;
+  gap: 1.2rem;
+}
+
+.news-card {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01)),
+    rgba(9, 20, 31, 0.82);
+  border: 1px solid var(--card-line);
+}
+
+.news-media {
+  display: grid;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  place-items: center;
+  background: rgba(0, 0, 0, 0.78);
+}
+
+.news-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+}
+
+.news-media-link {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.news-slot {
+  min-height: 0;
+  height: 100%;
+  border: 0;
+  border-bottom: 1px dashed rgba(237, 144, 116, 0.26);
+  border-radius: 0;
+}
+
+.news-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  padding: 1rem 1rem 1.1rem;
+}
+
+.news-card h3 {
+  margin: 0;
+  color: #fffdf9;
+  font-size: 0.96rem;
+  font-weight: 500;
+  line-height: 1.38;
+  font-family: "Outfit", "Avenir Next", "Trebuchet MS", sans-serif;
+  letter-spacing: 0.02em;
+  -webkit-text-stroke: 0.8px var(--accent);
+  paint-order: stroke fill;
+  text-shadow:
+    1px 0 0 var(--accent),
+    -1px 0 0 var(--accent),
+    0 1px 0 var(--accent),
+    0 -1px 0 var(--accent);
+}
+
+.slot {
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  border-radius: var(--radius-md);
+  text-align: center;
+  font-size: 0.86rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.slot-portrait,
+.slot-wide {
+  min-height: 13rem;
+  border: 1px dashed rgba(237, 144, 116, 0.26);
+  background:
+    linear-gradient(135deg, rgba(237, 144, 116, 0.08), rgba(237, 144, 116, 0.02)),
+    rgba(255, 255, 255, 0.02);
+  color: rgba(232, 229, 226, 0.82);
+}
+
+.slot-press {
+  min-height: 4.6rem;
+  background:
+    linear-gradient(135deg, rgba(237, 144, 116, 0.08), rgba(237, 144, 116, 0.02)),
+    rgba(255, 255, 255, 0.02);
+  color: rgba(232, 229, 226, 0.82);
+}
+
+.site-footer {
+  padding: 2rem 0 2.6rem;
+}
+
+.footer-inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem 1.4rem;
+  justify-content: space-between;
+  padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  color: rgba(236, 208, 166, 0.74);
+}
+
+.section-card,
+.event-card,
+.research-card,
+.news-panel,
+.masthead-inner,
+.site-footer,
+.news-card {
+  transform: translateY(18px);
+  opacity: 0;
+  transition:
+    transform 560ms cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 560ms ease;
+}
+
+.is-visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+@media (max-width: 980px) {
+  .intro-card,
+  .research-grid,
+  .news-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .research-layout {
+    display: block;
+  }
+
+  .repos-panel {
+    position: static;
+    width: auto;
+    margin-top: 1.2rem;
+    left: auto;
+    top: auto;
+  }
+
+  .intro-card {
+    padding: 1.2rem;
+  }
+
+  .intro-portrait {
+    width: min(100%, 18rem);
+  }
+}
+
+@media (max-width: 720px) {
+  :root {
+    --shell: min(100vw - 1.2rem, 1180px);
+  }
+
+  .masthead {
+    padding-top: 2rem;
+  }
+
+  .masthead-moon {
+    width: var(--moon-width);
+    opacity: 0.9;
+  }
+
+  .masthead {
+    --moon-width: 42vw;
+  }
+
+  .masthead-name {
+    font-size: 2.35rem;
+  }
+
+  .masthead-nav {
+    gap: 0.35rem 0.8rem;
+  }
+
+  .masthead-nav a {
+    padding: 0.72rem 0.98rem;
+  }
+
+  .nasa-nav-label {
+    font-size: 1.16rem;
+  }
+
+  .section {
+    padding-top: 1.6rem;
+  }
+
+  .footer-inner {
+    flex-direction: column;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .section-card,
+  .event-card,
+  .research-card,
+  .news-panel,
+  .masthead-inner,
+  .site-footer,
+  .news-card {
+    transform: none;
+    opacity: 1;
+  }
+}

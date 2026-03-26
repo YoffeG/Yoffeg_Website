@@ -907,40 +907,185 @@ main {
   }
 
   .masthead {
-    padding-top: 2rem;
+    min-height: 15rem;
+    padding-top: 0.6rem;
+    --moon-width: 31vw;
   }
 
-  .masthead-moon {
-    width: var(--moon-width);
-    opacity: 0.9;
+  .masthead-strip,
+  .masthead-left-planet,
+  .masthead-right-europa,
+  .masthead-left-backdrop,
+  .masthead-moon-backdrop,
+  .masthead-inner {
+    min-height: 15rem;
+    height: 15rem;
   }
 
-  .masthead {
-    --moon-width: 42vw;
+  .masthead-left-planet,
+  .masthead-right-europa {
+    width: calc(var(--moon-width) * 1.35);
+    opacity: 0.82;
+  }
+
+  .masthead-left-backdrop,
+  .masthead-moon-backdrop {
+    width: calc(var(--moon-width) * 1.8);
+  }
+
+  .masthead-inner {
+    gap: 0.5rem;
+    padding: 1.1rem 0.7rem 1.4rem;
   }
 
   .masthead-name {
-    font-size: 2.35rem;
+    font-size: clamp(1.9rem, 8.8vw, 2.5rem);
+    letter-spacing: 0.05em;
+  }
+
+  .masthead-role {
+    font-size: 0.82rem;
+    letter-spacing: 0.11em;
   }
 
   .masthead-nav {
-    gap: 0.35rem 0.8rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    width: min(100%, 21rem);
+    gap: 0.5rem;
+    margin-top: 0.75rem;
   }
 
   .masthead-nav a {
-    padding: 0.72rem 0.98rem;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 0.72rem 0.9rem;
+    border-radius: 999px;
+    background: rgba(9, 20, 31, 0.28);
   }
 
   .nasa-nav-label {
-    font-size: 1.16rem;
+    font-size: 1.02rem;
+    letter-spacing: 0.1em;
   }
 
   .section {
     padding-top: 1.6rem;
   }
 
+  .section-card,
+  .research-card,
+  .news-card,
+  .repos-panel,
+  .event-panel-card {
+    border-radius: 20px;
+  }
+
+  .intro-card {
+    gap: 1.1rem;
+    padding: 1rem;
+  }
+
+  .intro-copy p {
+    font-size: 0.98rem;
+    line-height: 1.62;
+  }
+
+  .section-heading {
+    margin-bottom: 0.95rem;
+  }
+
+  .section-title {
+    font-size: 1.32rem;
+  }
+
+  .research-grid,
+  .news-grid,
+  .repos-list {
+    gap: 1rem;
+  }
+
+  .research-card-body,
+  .news-card-body,
+  .repo-card,
+  .event-panel-card {
+    padding: 1rem;
+  }
+
+  .research-card h3,
+  .news-card h3,
+  .repo-card h3,
+  .event-panel-card h3 {
+    font-size: 0.94rem;
+  }
+
+  .repos-panel {
+    margin-top: 1rem;
+    padding: 1rem;
+  }
+
+  .repo-media-link {
+    min-height: 4.1rem;
+  }
+
+  .event-grid {
+    grid-template-columns: 1fr;
+  }
+
   .footer-inner {
     flex-direction: column;
+    gap: 0.45rem;
+    padding-top: 1rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --shell: min(100vw - 0.9rem, 1180px);
+  }
+
+  .masthead {
+    min-height: 13.75rem;
+    --moon-width: 26vw;
+  }
+
+  .masthead-strip,
+  .masthead-left-planet,
+  .masthead-right-europa,
+  .masthead-left-backdrop,
+  .masthead-moon-backdrop,
+  .masthead-inner {
+    min-height: 13.75rem;
+    height: 13.75rem;
+  }
+
+  .masthead-left-planet,
+  .masthead-right-europa {
+    width: calc(var(--moon-width) * 1.4);
+    opacity: 0.72;
+  }
+
+  .masthead-name {
+    font-size: 1.72rem;
+  }
+
+  .masthead-role {
+    font-size: 0.76rem;
+  }
+
+  .nasa-nav-label {
+    font-size: 0.92rem;
+  }
+
+  .research-media,
+  .news-media {
+    aspect-ratio: 4 / 3;
+  }
+
+  .intro-portrait {
+    width: min(100%, 15rem);
   }
 }
 

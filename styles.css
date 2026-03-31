@@ -654,10 +654,10 @@ main {
   text-underline-offset: 0.2em;
 }
 
-.repos-panel {
+.repos-panel,
+.collabs-panel {
   position: absolute;
   top: 2.6rem;
-  right: 1.2rem;
   width: 16.5rem;
   padding: 1.5rem 1.25rem;
   border-radius: var(--radius-lg);
@@ -666,6 +666,14 @@ main {
     linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01)),
     var(--panel);
   z-index: 1;
+}
+
+.repos-panel {
+  right: 1.2rem;
+}
+
+.collabs-panel {
+  left: 1.2rem;
 }
 
 .repos-title {
@@ -698,6 +706,18 @@ main {
   border-radius: var(--radius-sm);
   background: rgba(0, 0, 0, 0.78);
   overflow: hidden;
+}
+
+.collab-slot {
+  border: 1px dashed rgba(237, 144, 116, 0.24);
+  background:
+    linear-gradient(135deg, rgba(237, 144, 116, 0.08), rgba(237, 144, 116, 0.03)),
+    rgba(0, 0, 0, 0.78);
+  color: rgba(232, 229, 226, 0.82);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 }
 
 .repo-image {
@@ -884,11 +904,13 @@ main {
     display: block;
   }
 
-  .repos-panel {
+  .repos-panel,
+  .collabs-panel {
     position: static;
     width: auto;
     margin-top: 1.2rem;
     left: auto;
+    right: auto;
     top: auto;
   }
 
@@ -977,6 +999,7 @@ main {
   .section-card,
   .research-card,
   .news-card,
+  .collabs-panel,
   .repos-panel,
   .event-panel-card {
     border-radius: 20px;
@@ -1020,7 +1043,8 @@ main {
     font-size: 0.94rem;
   }
 
-  .repos-panel {
+  .repos-panel,
+  .collabs-panel {
     margin-top: 1rem;
     padding: 1rem;
   }

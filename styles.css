@@ -727,6 +727,11 @@ main {
   display: block;
 }
 
+.collab-image {
+  max-width: calc(100% - 0.9rem);
+  max-height: calc(100% - 0.9rem);
+}
+
 .repo-card h3 {
   margin: 0;
   color: var(--text);

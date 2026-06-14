@@ -546,7 +546,10 @@ main {
 }
 
 .research-layout {
-  display: block;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 16.5rem;
+  gap: 1.2rem;
+  align-items: start;
 }
 
 .research-main {
@@ -657,8 +660,7 @@ main {
 
 .repos-panel,
 .collabs-panel {
-  position: absolute;
-  top: 2.6rem;
+  position: static;
   width: 16.5rem;
   padding: 1.5rem 1.25rem;
   border-radius: var(--radius-lg);
@@ -669,12 +671,9 @@ main {
   z-index: 1;
 }
 
-.repos-panel {
-  right: 1.2rem;
-}
-
 .collabs-panel {
-  left: 1.2rem;
+  width: min(16.5rem, var(--shell));
+  margin: 1.2rem auto 0;
 }
 
 .repos-title {
@@ -754,6 +753,27 @@ main {
 .repo-card a:focus-visible {
   text-decoration: underline;
   text-underline-offset: 0.2em;
+}
+
+@media (min-width: 1800px) {
+  .research-layout {
+    display: block;
+  }
+
+  .repos-panel,
+  .collabs-panel {
+    position: absolute;
+    top: 2.6rem;
+  }
+
+  .repos-panel {
+    right: 1.2rem;
+  }
+
+  .collabs-panel {
+    left: 1.2rem;
+    margin: 0;
+  }
 }
 
 .news-section {

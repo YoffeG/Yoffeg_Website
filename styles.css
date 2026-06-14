@@ -546,10 +546,7 @@ main {
 }
 
 .research-layout {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 16.5rem;
-  gap: 1.2rem;
-  align-items: start;
+  display: block;
 }
 
 .research-main {
@@ -660,7 +657,8 @@ main {
 
 .repos-panel,
 .collabs-panel {
-  position: static;
+  position: absolute;
+  top: 2.6rem;
   width: 16.5rem;
   padding: 1.5rem 1.25rem;
   border-radius: var(--radius-lg);
@@ -671,9 +669,12 @@ main {
   z-index: 1;
 }
 
+.repos-panel {
+  right: 1.2rem;
+}
+
 .collabs-panel {
-  width: min(16.5rem, var(--shell));
-  margin: 1.2rem auto 0;
+  left: 1.2rem;
 }
 
 .repos-title {
@@ -755,24 +756,39 @@ main {
   text-underline-offset: 0.2em;
 }
 
-@media (min-width: 1800px) {
-  .research-layout {
-    display: block;
+.side-panels-section {
+  display: contents;
+}
+
+@media (max-width: 1740px) {
+  .side-panels-section {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 16.5rem));
+    justify-content: center;
+    align-items: start;
+    gap: 1.2rem;
+    padding-top: 1.2rem;
   }
 
   .repos-panel,
   .collabs-panel {
-    position: absolute;
-    top: 2.6rem;
+    position: static;
+    width: auto;
+    left: auto;
+    right: auto;
+    top: auto;
+  }
+}
+
+@media (max-width: 620px) {
+  .side-panels-section {
+    grid-template-columns: minmax(0, 1fr);
   }
 
-  .repos-panel {
-    right: 1.2rem;
-  }
-
+  .repos-panel,
   .collabs-panel {
-    left: 1.2rem;
-    margin: 0;
+    width: min(100%, 16.5rem);
+    justify-self: center;
   }
 }
 
